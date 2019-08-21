@@ -2,9 +2,8 @@
 
 namespace MattDaneshvar\Survey\Tests;
 
-use MattDaneshvar\Survey\Models\Entry;
-use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
+use MattDaneshvar\Survey\Models\Question;
 
 class SurveyTest extends TestCase
 {
@@ -12,7 +11,7 @@ class SurveyTest extends TestCase
     public function it_has_a_name()
     {
         $survey = create(Survey::class, ['name' => 'Cat Survey']);
-        
+
         $this->assertEquals('Cat Survey', $survey->name);
     }
 
@@ -21,20 +20,20 @@ class SurveyTest extends TestCase
     {
         $survey = new Survey([
             'name' => 'Cat Survey',
-            'settings' => ['accept-guest-entries' => true]
+            'settings' => ['accept-guest-entries' => true],
         ]);
-        
+
         $this->assertCount(1, $survey->settings);
     }
-    
+
     /** @test */
     public function it_can_add_questions()
     {
         $survey = create(Survey::class);
-        
+
         $survey->questions()->create(['content' => 'How many cats do you have?']);
-        
-        $this->assertEquals(1, $survey->questions->count()); 
+
+        $this->assertEquals(1, $survey->questions->count());
     }
 
     /** @test */
@@ -54,12 +53,12 @@ class SurveyTest extends TestCase
     {
         $q1 = create(Question::class, ['rules' => ['numeric', 'min:0']]);
         $q2 = create(Question::class, ['rules' => ['date']]);
-        
+
         $survey = create(Survey::class);
-        
+
         $survey->questions()->saveMany([$q1, $q2]);
-        
-        $this->assertArrayHasKey($q1->key,$survey->rules);
+
+        $this->assertArrayHasKey($q1->key, $survey->rules);
     }
 
     /** @test */
@@ -70,7 +69,7 @@ class SurveyTest extends TestCase
         $this->assertEquals(1, $survey->limitPerParticipant());
 
         $anotherSurvey = new Survey([
-            'settings' => ['limit-per-participant' => 5]
+            'settings' => ['limit-per-participant' => 5],
         ]);
 
         $this->assertEquals(5, $anotherSurvey->limitPerParticipant());
@@ -80,7 +79,7 @@ class SurveyTest extends TestCase
     public function it_may_have_no_limits_per_participant()
     {
         $survey = new Survey([
-            'settings' => ['limit-per-participant' => -1]
+            'settings' => ['limit-per-participant' => -1],
         ]);
 
         $this->assertNull($survey->limitPerParticipant());
@@ -98,7 +97,7 @@ class SurveyTest extends TestCase
     public function it_may_accept_guest_entries()
     {
         $survey = new Survey([
-            'settings' => ['accept-guest-entries' => true]
+            'settings' => ['accept-guest-entries' => true],
         ]);
 
         $this->assertTrue($survey->acceptsGuestEntries());

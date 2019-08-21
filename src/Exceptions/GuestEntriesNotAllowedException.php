@@ -8,8 +8,8 @@ class GuestEntriesNotAllowedException extends Exception
 {
     /**
      * The exception message.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     protected $message = 'Login is required for this survey.';
 }

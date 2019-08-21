@@ -2,10 +2,10 @@
 
 namespace MattDaneshvar\Survey\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
-use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
+use Illuminate\Database\Eloquent\Model;
 use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
+use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
 
 class Entry extends Model
 {
@@ -26,7 +26,7 @@ class Entry extends Model
         parent::boot();
 
         //Prevent submission of entries that don't meet the parent survey.
-        static::creating(function (Entry $entry) {
+        static::creating(function (self $entry) {
             $entry->validateParticipant();
             $entry->validateMaxEntryPerUserRequirement();
         });
@@ -34,7 +34,7 @@ class Entry extends Model
 
     /**
      * The answers within the entry.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function answers()
@@ -44,7 +44,7 @@ class Entry extends Model
 
     /**
      * The survey the entry belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function survey()
@@ -54,7 +54,7 @@ class Entry extends Model
 
     /**
      * The participant that the entry belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function participant()
@@ -64,7 +64,7 @@ class Entry extends Model
 
     /**
      * Set the survey the entry belongs to.
-     * 
+     *
      * @param Survey $survey
      * @return $this
      */
@@ -77,7 +77,7 @@ class Entry extends Model
 
     /**
      * Set the participant who the entry belongs to.
-     * 
+     *
      * @param Model|null $model
      * @return $this
      */
@@ -90,7 +90,7 @@ class Entry extends Model
 
     /**
      * Create an entry from an array.
-     * 
+     *
      * @param array $values
      * @return $this
      */
@@ -104,7 +104,7 @@ class Entry extends Model
             $this->answers->add(Answer::make([
                 'question_id' => substr($key, 1),
                 'entry_id' => $this->id,
-                'value' => $value
+                'value' => $value,
             ]));
         }
 
@@ -113,13 +113,14 @@ class Entry extends Model
 
     /**
      * The answer for a given question.
-     * 
+     *
      * @param Question $question
      * @return mixed|null
      */
     public function answerFor(Question $question)
     {
         $answer = $this->answers()->where('question_id', $question->id)->first();
+
         return isset($answer) ? $answer->value : null;
     }
 
@@ -142,7 +143,7 @@ class Entry extends Model
 
     /**
      * Validate participant's legibility.
-     * 
+     *
      * @throws GuestEntriesNotAllowedException
      */
     public function validateParticipant()
@@ -159,9 +160,9 @@ class Entry extends Model
     }
 
     /**
-     * Validate if entry exceeds the survey's 
+     * Validate if entry exceeds the survey's
      * max entry per participant limit.
-     * 
+     *
      * @throws MaxEntriesPerUserLimitExceeded
      */
     public function validateMaxEntryPerUserRequirement()

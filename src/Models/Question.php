@@ -12,7 +12,7 @@ class Question extends Model
      * @var array
      */
     protected $fillable = ['type', 'options', 'content', 'rules', 'survey_id'];
-    
+
     protected $casts = [
         'rules' => 'array',
         'options' => 'array',
@@ -28,11 +28,10 @@ class Question extends Model
         parent::boot();
 
         //Ensure the question's survey is the same as the section it belongs to.
-        static::creating(function (Question $question) {
+        static::creating(function (self $question) {
             $question->load('section');
-            
-            if($question->section)
-            {
+
+            if ($question->section) {
                 $question->survey_id = $question->section->survey_id;
             }
         });
@@ -40,7 +39,7 @@ class Question extends Model
 
     /**
      * The survey the question belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function survey()
@@ -50,7 +49,7 @@ class Question extends Model
 
     /**
      * The section the question belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function section()
@@ -60,7 +59,7 @@ class Question extends Model
 
     /**
      * The answers that belong to the question.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function answers()
@@ -70,19 +69,20 @@ class Question extends Model
 
     /**
      * The question's validation rules.
-     * 
+     *
      * @param $value
      * @return array|mixed
      */
     public function getRulesAttribute($value)
     {
         $value = $this->castAttribute('rules', $value);
+
         return $value !== null ? $value : [];
     }
 
     /**
      * The unique key representing the question.
-     * 
+     *
      * @return string
      */
     public function getKeyAttribute()
@@ -91,9 +91,9 @@ class Question extends Model
     }
 
     /**
-     * Scope a query to only include questions that 
+     * Scope a query to only include questions that
      * don't belong to any sections.
-     * 
+     *
      * @param $query
      * @return mixed
      */

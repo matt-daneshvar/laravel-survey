@@ -15,7 +15,7 @@ class Answer extends Model
 
     /**
      * The entry the answer belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function entry()
@@ -25,7 +25,7 @@ class Answer extends Model
 
     /**
      * The question the answer belongs to.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function question()

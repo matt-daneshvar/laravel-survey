@@ -8,14 +8,14 @@ class Summary
 {
     /**
      * The question the summary belongs to.
-     * 
-     * @var Question 
+     *
+     * @var Question
      */
     protected $question;
 
     /**
      * Summary constructor.
-     * 
+     *
      * @param Question $question
      */
     public function __construct(Question $question)
@@ -24,8 +24,8 @@ class Summary
     }
 
     /**
-     * Find all answers with the same value. 
-     * 
+     * Find all answers with the same value.
+     *
      * @param $value
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -36,19 +36,20 @@ class Summary
 
     /**
      * Find the ratio of similar answers to all other answers.
-     * 
+     *
      * @param $value
      * @return float|int
      */
     public function similarAnswersRatio($value)
     {
-        $total = $this->question->answers()->count(); 
+        $total = $this->question->answers()->count();
+
         return $total > 0 ? $this->similarAnswers($value)->count() / $total : 0;
     }
 
     /**
      * Calculate the average answer.
-     * 
+     *
      * @return int|mixed
      */
     public function average()
