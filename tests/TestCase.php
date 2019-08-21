@@ -17,7 +17,7 @@ class TestCase extends Orchestra
         $this->loadLaravelMigrations();
 
         $this->setUpDatabase();
-        
+
         $this->setUpFactories();
     }
 
@@ -27,11 +27,11 @@ class TestCase extends Orchestra
     protected function setUpDatabase()
     {
         //Package migrations
-        include_once  __DIR__ . '/../database/migrations/create_surveys_table.php.stub';
-        include_once  __DIR__ . '/../database/migrations/create_questions_table.php.stub';
-        include_once  __DIR__ . '/../database/migrations/create_answers_table.php.stub';
-        include_once  __DIR__ . '/../database/migrations/create_entries_table.php.stub';
-        include_once  __DIR__ . '/../database/migrations/create_sections_table.php.stub';
+        include_once __DIR__.'/../database/migrations/create_surveys_table.php.stub';
+        include_once __DIR__.'/../database/migrations/create_questions_table.php.stub';
+        include_once __DIR__.'/../database/migrations/create_answers_table.php.stub';
+        include_once __DIR__.'/../database/migrations/create_entries_table.php.stub';
+        include_once __DIR__.'/../database/migrations/create_sections_table.php.stub';
 
         (new \CreateQuestionsTable())->up();
         (new \CreateSurveysTable())->up();
@@ -39,9 +39,9 @@ class TestCase extends Orchestra
         (new \CreateAnswersTable())->up();
         (new \CreateSectionsTable())->up();
     }
-    
-    /** 
-     * Setup test factories. 
+
+    /**
+     * Setup test factories.
      */
     protected function setUpFactories()
     {
@@ -50,20 +50,20 @@ class TestCase extends Orchestra
 
     /**
      * Sign in a dummy user.
-     * 
+     *
      * @param User|null $user
      * @return User
      */
     protected function signIn(User $user = null)
     {
         $user = $user ?? User::forceCreate([
-            'name' => 'John', 
-            'email' => 'john@example.com', 
-            'password' => 'secret'
+            'name' => 'John',
+            'email' => 'john@example.com',
+            'password' => 'secret',
         ]);
 
         $this->actingAs($user);
-        
+
         return $user;
     }
 }

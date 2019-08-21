@@ -15,7 +15,7 @@ class Section extends Model
 
     /**
      * The questions of the section.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function questions()

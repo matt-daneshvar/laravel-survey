@@ -2,8 +2,8 @@
 
 namespace MattDaneshvar\Survey\Http\View\Composers;
 
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\View\View;
+use Illuminate\Contracts\Auth\Guard;
 
 class SurveyComposer
 {
@@ -11,7 +11,7 @@ class SurveyComposer
 
     /**
      * SurveyComposer constructor.
-     * 
+     *
      * @param Guard $auth
      */
     public function __construct(Guard $auth)
@@ -21,14 +21,14 @@ class SurveyComposer
 
     /**
      * Compose the view with relevant values.
-     * 
+     *
      * @param View $view
      */
     public function compose(View $view)
     {
         $view->with([
             'eligible' => $view->survey->isEligible($this->auth->user()),
-            'lastEntry' => $view->survey->lastEntry(auth()->user())
+            'lastEntry' => $view->survey->lastEntry(auth()->user()),
         ]);
     }
 }

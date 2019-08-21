@@ -3,7 +3,6 @@
 namespace MattDaneshvar\Survey\Tests;
 
 use MattDaneshvar\Survey\Models\Section;
-use MattDaneshvar\Survey\Models\Survey;
 
 class SectionTest extends TestCase
 {

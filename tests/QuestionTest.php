@@ -2,8 +2,8 @@
 
 namespace MattDaneshvar\Survey\Tests;
 
-use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
+use MattDaneshvar\Survey\Models\Question;
 
 class QuestionTest extends TestCase
 {
@@ -36,7 +36,7 @@ class QuestionTest extends TestCase
     {
         $question = new Question([
             'content' => 'How many cats do you have?',
-            'rules' => ['numeric', 'min:1']
+            'rules' => ['numeric', 'min:1'],
         ]);
 
         $this->assertCount(2, $question->rules);
@@ -47,7 +47,7 @@ class QuestionTest extends TestCase
     {
         $question = new Question([
             'content' => 'How many cats do you have?',
-            'options' => ['One', 'Two', 'Three']
+            'options' => ['One', 'Two', 'Three'],
         ]);
 
         $this->assertCount(3, $question->options);
@@ -61,7 +61,7 @@ class QuestionTest extends TestCase
         $section = $survey->sections()->create(['name' => 'Basic Information']);
 
         $question = $section->questions()->create([
-            'content' => 'How many cats do you have?'
+            'content' => 'How many cats do you have?',
         ]);
 
         $this->assertEquals($survey->id, $question->survey->id);

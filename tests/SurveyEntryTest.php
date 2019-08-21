@@ -2,10 +2,10 @@
 
 namespace MattDaneshvar\Survey\Tests;
 
-use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
-use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Survey;
+use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
+use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
 
 class SurveyEntryTest extends TestCase
 {
@@ -18,12 +18,12 @@ class SurveyEntryTest extends TestCase
 
         Entry::create(['survey_id' => $survey->id]);
     }
-    
+
     /** @test */
     public function guests_may_create_entries_when_survey_allows_guest_entries()
     {
         $survey = create(Survey::class, [
-            'settings' => ['accept-guest-entries' => true]
+            'settings' => ['accept-guest-entries' => true],
         ]);
 
         $entry = Entry::create(['survey_id' => $survey->id]);
@@ -47,7 +47,7 @@ class SurveyEntryTest extends TestCase
     public function users_may_create_entries_within_the_specified_max_entries_per_user_limit()
     {
         $survey = create(Survey::class, [
-            'settings' => ['limit-per-participant' => 1]
+            'settings' => ['limit-per-participant' => 1],
         ]);
 
         $user = $this->signIn();
@@ -67,8 +67,8 @@ class SurveyEntryTest extends TestCase
         $survey = create(Survey::class, [
             'settings' => [
                 'limit-per-participant' => 0,
-                'accept-guest-entries' => true
-            ]
+                'accept-guest-entries' => true,
+            ],
         ]);
 
         $user = $this->signIn();
