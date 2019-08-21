@@ -1,0 +1,46 @@
+{
+  "name": "matt-daneshvar/laravel-survey",
+  "description": "Create surveys inside your Laravel app",
+  "keywords": [
+    "laravel",
+    "survey"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matt Daneshvar",
+      "email": "matt.daneshvar@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "illuminate/database": "~5.8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.2",
+    "orchestra/testbench": "^3.8",
+    "illuminate/http": "5.*",
+    "illuminate/database": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "MattDaneshvar\\Survey\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MattDaneshvar\\Survey\\Tests\\": "tests/"
+    },
+    "files": [
+      "tests/utilities/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MattDaneshvar\\Survey\\SurveyServiceProvider"
+      ]
+    }
+  }
+}
