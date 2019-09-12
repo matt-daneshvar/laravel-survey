@@ -25,7 +25,7 @@ class Entry extends Model
     {
         parent::boot();
 
-        //Prevent submission of entries that don't meet the parent survey.
+        //Prevent submission of entries that don't meet the parent survey's constraints.
         static::creating(function (self $entry) {
             $entry->validateParticipant();
             $entry->validateMaxEntryPerUserRequirement();
