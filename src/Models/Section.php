@@ -19,7 +19,7 @@ class Section extends Model
 
         parent::__construct($attributes);
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *
