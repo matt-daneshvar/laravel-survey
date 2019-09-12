@@ -3,8 +3,8 @@
 namespace MattDaneshvar\Survey\Tests;
 
 use Illuminate\Foundation\Auth\User;
-use MattDaneshvar\Survey\SurveyServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use MattDaneshvar\Survey\SurveyServiceProvider;
 
 class TestCase extends Orchestra
 {

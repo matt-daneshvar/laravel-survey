@@ -1,12 +1,12 @@
 <?php
 
 return [
-    
-    /**
+
+    /*
      * Database related configurations.
      */
     'database' => [
-        /**
+        /*
          * Name of the tables created by the migrations
          * and used by the models of this package.
          */
@@ -17,5 +17,5 @@ return [
             'entries' => 'entries',
             'answers' => 'answers',
         ],
-    ]
+    ],
 ];
