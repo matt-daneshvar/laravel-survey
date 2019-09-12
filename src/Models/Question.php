@@ -39,7 +39,7 @@ class Question extends Model
 
     /**
      * Question constructor.
-     * 
+     *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])

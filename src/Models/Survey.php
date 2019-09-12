@@ -8,7 +8,7 @@ class Survey extends Model
 {
     /**
      * Survey constructor.
-     * 
+     *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])
@@ -19,7 +19,7 @@ class Survey extends Model
 
         parent::__construct($attributes);
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *

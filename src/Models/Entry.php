@@ -34,7 +34,7 @@ class Entry extends Model
 
     /**
      * Entry constructor.
-     * 
+     *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])
