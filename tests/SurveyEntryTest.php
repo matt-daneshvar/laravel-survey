@@ -28,7 +28,7 @@ class SurveyEntryTest extends TestCase
 
         $entry = Entry::create(['survey_id' => $survey->id]);
 
-        $this->assertDatabaseHas('entries', ['id' => $entry->id]);
+        $this->assertDatabaseHas($entry->getTable(), ['id' => $entry->id]);
     }
 
     /** @test */
@@ -40,7 +40,7 @@ class SurveyEntryTest extends TestCase
 
         $entry = tap(Entry::make(['survey_id' => $survey->id])->by($user))->save();
 
-        $this->assertDatabaseHas('entries', ['id' => $entry->id]);
+        $this->assertDatabaseHas($entry->getTable(), ['id' => $entry->id]);
     }
 
     /** @test */
@@ -54,7 +54,7 @@ class SurveyEntryTest extends TestCase
 
         $entry = tap(Entry::make(['survey_id' => $survey->id])->by($user))->save();
 
-        $this->assertDatabaseHas('entries', ['id' => $entry->id]);
+        $this->assertDatabaseHas($entry->getTable(), ['id' => $entry->id]);
 
         $this->expectException(MaxEntriesPerUserLimitExceeded::class);
 
@@ -75,6 +75,6 @@ class SurveyEntryTest extends TestCase
 
         $entry = tap(Entry::make(['survey_id' => $survey->id])->by($user))->save();
 
-        $this->assertDatabaseHas('entries', ['id' => $entry->id]);
+        $this->assertDatabaseHas($entry->getTable(), ['id' => $entry->id]);
     }
 }

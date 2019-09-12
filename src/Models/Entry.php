@@ -33,6 +33,20 @@ class Entry extends Model
     }
 
     /**
+     * Entry constructor.
+     * 
+     * @param array $attributes
+     */
+    public function __construct(array $attributes = [])
+    {
+        if (! isset($this->table)) {
+            $this->setTable(config('survey.database.tables.entries'));
+        }
+
+        parent::__construct($attributes);
+    }
+
+    /**
      * The answers within the entry.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

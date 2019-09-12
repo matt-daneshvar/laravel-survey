@@ -13,7 +13,7 @@ class CreateEntriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entries', function (Blueprint $table) {
+        Schema::create(config('survey.database.tables.entries'), function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('survey_id');
             $table->unsignedInteger('participant_id')->nullable();
@@ -28,6 +28,6 @@ class CreateEntriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entries');
+        Schema::dropIfExists(config('survey.database.tables.entries'));
     }
 }

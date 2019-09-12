@@ -3,6 +3,7 @@
 namespace MattDaneshvar\Survey\Tests;
 
 use Illuminate\Foundation\Auth\User;
+use MattDaneshvar\Survey\SurveyServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -46,6 +47,13 @@ class TestCase extends Orchestra
     protected function setUpFactories()
     {
         $this->withFactories(__DIR__.'/../database/factories');
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [
+            SurveyServiceProvider::class,
+        ];
     }
 
     /**

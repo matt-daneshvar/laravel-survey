@@ -13,7 +13,7 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create(config('survey.database.tables.answers'), function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('question_id');
             $table->unsignedInteger('entry_id')->nullable();
@@ -29,6 +29,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists(config('survey.database.tables.answers'));
     }
 }

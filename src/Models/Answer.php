@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     /**
+     * Answer constructor.
+     * 
+     * @param array $attributes
+     */
+    public function __construct(array $attributes = [])
+    {
+        if (! isset($this->table)) {
+            $this->setTable(config('survey.database.tables.answers'));
+        }
+        
+        parent::__construct($attributes);
+    }
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
