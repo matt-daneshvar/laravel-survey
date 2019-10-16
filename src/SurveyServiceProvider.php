@@ -20,6 +20,10 @@ class SurveyServiceProvider extends ServiceProvider
             __DIR__.'/../config/survey.php' => config_path('survey.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__.'/../resources/views/' => base_path('resources/views/vendor/survey'), 
+        ], 'views');
+
         $this->mergeConfigFrom(__DIR__.'/../config/survey.php', 'survey');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'survey');
