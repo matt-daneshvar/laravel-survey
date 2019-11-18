@@ -2,10 +2,10 @@
 
 namespace MattDaneshvar\Survey\Tests;
 
+use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
+use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Survey;
-use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
-use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
 
 class SurveyEntryTest extends TestCase
 {

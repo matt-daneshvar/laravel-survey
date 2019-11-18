@@ -2,10 +2,10 @@
 
 namespace MattDaneshvar\Survey\Tests;
 
-use MattDaneshvar\Survey\Models\Survey;
 use Illuminate\Support\Facades\Validator;
-use MattDaneshvar\Survey\Models\Question;
 use Illuminate\Validation\ValidationException;
+use MattDaneshvar\Survey\Models\Question;
+use MattDaneshvar\Survey\Models\Survey;
 
 class SurveyValidationTest extends TestCase
 {
