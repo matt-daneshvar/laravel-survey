@@ -3,8 +3,8 @@
 namespace MattDaneshvar\Survey\Tests;
 
 use MattDaneshvar\Survey\Models\Entry;
-use MattDaneshvar\Survey\Models\Survey;
 use MattDaneshvar\Survey\Models\Question;
+use MattDaneshvar\Survey\Models\Survey;
 
 class EntryTest extends TestCase
 {

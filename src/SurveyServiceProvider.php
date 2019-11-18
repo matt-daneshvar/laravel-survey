@@ -2,9 +2,9 @@
 
 namespace MattDaneshvar\Survey;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use MattDaneshvar\Survey\Http\View\Composers\SurveyComposer;
 
 class SurveyServiceProvider extends ServiceProvider
@@ -21,7 +21,7 @@ class SurveyServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../resources/views/' => base_path('resources/views/vendor/survey'), 
+            __DIR__.'/../resources/views/' => base_path('resources/views/vendor/survey'),
         ], 'views');
 
         $this->mergeConfigFrom(__DIR__.'/../config/survey.php', 'survey');

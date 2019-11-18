@@ -2,10 +2,10 @@
 
 namespace MattDaneshvar\Survey\Models;
 
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
-use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
+use Illuminate\Foundation\Auth\User;
 use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
+use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
 
 class Entry extends Model
 {

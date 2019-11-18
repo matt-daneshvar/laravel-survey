@@ -2,8 +2,8 @@
 
 namespace MattDaneshvar\Survey\Http\View\Composers;
 
-use Illuminate\View\View;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\View\View;
 
 class SurveyComposer
 {
