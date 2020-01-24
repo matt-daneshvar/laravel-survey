@@ -150,7 +150,7 @@ are not expected to replace your views in production.
 To display survey in a card, include the `card` partial in your views.
 
 ```blade
-@include('survey::card', ['survey' => $survey])
+@include('survey::standard', ['survey' => $survey])
 ``` 
 
 #### Customizing the Views
