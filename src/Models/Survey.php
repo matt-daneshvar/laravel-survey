@@ -33,7 +33,7 @@ class Survey extends Model
      * @var array
      */
     protected $casts = [
-      'settings' => 'array',
+        'settings' => 'array',
     ];
 
     /**
