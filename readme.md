@@ -80,7 +80,7 @@ $two->questions()->create([
 The `Entry` model comes with a `fromArray` function.  
 This is especially useful when you're creating an entry from a form submission. 
 ```php
-Entry::for($survey)->fromArray([
+(new Entry)->for($survey)->fromArray([
     'q1' => 'Yes',
     'q2' => 5
 ])->push();
@@ -89,7 +89,7 @@ Entry::for($survey)->fromArray([
 #### By a Specific User
 You may fluently specify the participant using the `by()` function.
 ```php
-Entry::for($survey)->by($user)->fromArray($answers)->push();
+(new Entry)->for($survey)->by($user)->fromArray($answers)->push();
 ```
 
 ### Setting Constraints
@@ -137,7 +137,7 @@ class SurveyEntriesController extends Controller
     {
         $answers = $this->validate($request, $survey);
         
-        Entry::for($survey)->fromArray($answers)->push();
+        (new Entry)->for($survey)->fromArray($answers)->push();
     }
 }
 ```
