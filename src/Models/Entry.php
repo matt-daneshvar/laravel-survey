@@ -187,7 +187,9 @@ class Entry extends Model
             return;
         }
 
-        $count = static::where('participant_id', $this->participant_id)->count();
+        $count = static::where('participant_id', $this->participant_id)
+            ->where('survey_id', $this->survey->id)
+            ->count();
 
         if ($count >= $limit) {
             throw new MaxEntriesPerUserLimitExceeded();
