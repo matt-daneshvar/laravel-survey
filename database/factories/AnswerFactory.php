@@ -6,7 +6,7 @@ use MattDaneshvar\Survey\Models\Question;
 
 $factory->define(Answer::class, function (Faker $faker) {
     return [
-        'value' => $faker->text(10),
+        'value' => $faker->words(3, true),
         'question_id' => factory(Question::class)->create()->id,
     ];
 });
