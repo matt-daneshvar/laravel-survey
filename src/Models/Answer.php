@@ -34,7 +34,7 @@ class Answer extends Model
      */
     public function entry()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Entry::class);
     }
 
     /**
