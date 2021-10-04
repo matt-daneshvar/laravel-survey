@@ -3,8 +3,12 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use MattDaneshvar\Survey\Contracts\Entry;
+use MattDaneshvar\Survey\Contracts\Question;
+use MattDaneshvar\Survey\Contracts\Section;
+use MattDaneshvar\Survey\Contracts\Survey as SurveyContract;
 
-class Survey extends Model
+class Survey extends Model implements SurveyContract
 {
     /**
      * Survey constructor.
@@ -43,7 +47,7 @@ class Survey extends Model
      */
     public function sections()
     {
-        return $this->hasMany(Section::class);
+        return $this->hasMany(get_class(app()->make(Section::class)));
     }
 
     /**
@@ -53,7 +57,7 @@ class Survey extends Model
      */
     public function questions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(get_class(app()->make(Question::class)));
     }
 
     /**
@@ -63,7 +67,7 @@ class Survey extends Model
      */
     public function entries()
     {
-        return $this->hasMany(Entry::class);
+        return $this->hasMany(get_class(app()->make(Entry::class)));
     }
 
     /**

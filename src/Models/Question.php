@@ -3,8 +3,12 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use MattDaneshvar\Survey\Contracts\Answer;
+use MattDaneshvar\Survey\Contracts\Question as QuestionContract;
+use MattDaneshvar\Survey\Contracts\Section;
+use MattDaneshvar\Survey\Contracts\Survey;
 
-class Question extends Model
+class Question extends Model implements QuestionContract
 {
     /**
      * The attributes that are mass assignable.
@@ -58,7 +62,7 @@ class Question extends Model
      */
     public function survey()
     {
-        return $this->belongsTo(Survey::class);
+        return $this->belongsTo(get_class(app()->make(Survey::class)));
     }
 
     /**
@@ -68,7 +72,7 @@ class Question extends Model
      */
     public function section()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(get_class(app()->make(Section::class)));
     }
 
     /**
@@ -78,7 +82,7 @@ class Question extends Model
      */
     public function answers()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(get_class(app()->make(Answer::class)));
     }
 
     /**
