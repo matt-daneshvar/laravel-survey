@@ -13,7 +13,7 @@ class Survey extends Model implements SurveyContract
     /**
      * Survey constructor.
      *
-     * @param array $attributes
+     * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -99,7 +99,7 @@ class Survey extends Model implements SurveyContract
     /**
      * Survey entries by a participant.
      *
-     * @param Model $participant
+     * @param  Model  $participant
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function entriesFrom(Model $participant)
@@ -110,7 +110,7 @@ class Survey extends Model implements SurveyContract
     /**
      * Last survey entry by a participant.
      *
-     * @param Model $participant
+     * @param  Model  $participant
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function lastEntry(Model $participant = null)
@@ -121,7 +121,7 @@ class Survey extends Model implements SurveyContract
     /**
      * Check if a participant is eligible to submit the survey.
      *
-     * @param Model|null $model
+     * @param  Model|null  $model
      * @return bool
      */
     public function isEligible(Model $participant = null)

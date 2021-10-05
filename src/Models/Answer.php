@@ -12,7 +12,7 @@ class Answer extends Model implements AnswerContract
     /**
      * Answer constructor.
      *
-     * @param array $attributes
+     * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {

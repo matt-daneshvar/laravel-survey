@@ -12,7 +12,7 @@ class SurveyServiceProvider extends ServiceProvider
     /**
      * Boot the package.
      *
-     * @param ViewFactory $viewFactory
+     * @param  ViewFactory  $viewFactory
      */
     public function boot(ViewFactory $viewFactory)
     {

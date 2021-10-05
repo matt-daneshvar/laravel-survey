@@ -11,7 +11,7 @@ class Section extends Model implements SectionContract
     /**
      * Section constructor.
      *
-     * @param array $attributes
+     * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {

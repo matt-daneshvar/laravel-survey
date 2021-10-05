@@ -38,7 +38,7 @@ class Entry extends Model implements EntryContract
     /**
      * Entry constructor.
      *
-     * @param array $attributes
+     * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -82,7 +82,7 @@ class Entry extends Model implements EntryContract
     /**
      * Set the survey the entry belongs to.
      *
-     * @param Survey $survey
+     * @param  Survey  $survey
      * @return $this
      */
     public function for(Survey $survey)
@@ -95,7 +95,7 @@ class Entry extends Model implements EntryContract
     /**
      * Set the participant who the entry belongs to.
      *
-     * @param Model|null $model
+     * @param  Model|null  $model
      * @return $this
      */
     public function by(Model $model = null)
@@ -108,7 +108,7 @@ class Entry extends Model implements EntryContract
     /**
      * Create an entry from an array.
      *
-     * @param array $values
+     * @param  array  $values
      * @return $this
      */
     public function fromArray(array $values)
@@ -133,7 +133,7 @@ class Entry extends Model implements EntryContract
     /**
      * The answer for a given question.
      *
-     * @param Question $question
+     * @param  Question  $question
      * @return mixed|null
      */
     public function answerFor(Question $question)
