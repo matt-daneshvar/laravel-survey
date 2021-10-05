@@ -16,7 +16,7 @@ class Summary
     /**
      * Summary constructor.
      *
-     * @param Question $question
+     * @param  Question  $question
      */
     public function __construct(Question $question)
     {

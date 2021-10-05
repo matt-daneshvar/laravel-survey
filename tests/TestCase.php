@@ -59,7 +59,7 @@ class TestCase extends Orchestra
     /**
      * Sign in a dummy user.
      *
-     * @param User|null $user
+     * @param  User|null  $user
      * @return User
      */
     protected function signIn(User $user = null)

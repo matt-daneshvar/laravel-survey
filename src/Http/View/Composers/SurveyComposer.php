@@ -12,7 +12,7 @@ class SurveyComposer
     /**
      * SurveyComposer constructor.
      *
-     * @param Guard $auth
+     * @param  Guard  $auth
      */
     public function __construct(Guard $auth)
     {
@@ -22,7 +22,7 @@ class SurveyComposer
     /**
      * Compose the view with relevant values.
      *
-     * @param View $view
+     * @param  View  $view
      */
     public function compose(View $view)
     {
