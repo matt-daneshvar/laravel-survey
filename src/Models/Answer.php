@@ -3,8 +3,11 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use MattDaneshvar\Survey\Contracts\Answer as AnswerContract;
+use MattDaneshvar\Survey\Contracts\Entry;
+use MattDaneshvar\Survey\Contracts\Question;
 
-class Answer extends Model
+class Answer extends Model implements AnswerContract
 {
     /**
      * Answer constructor.
@@ -34,7 +37,7 @@ class Answer extends Model
      */
     public function entry()
     {
-        return $this->belongsTo(Entry::class);
+        return $this->belongsTo(get_class(app()->make(Entry::class)));
     }
 
     /**
@@ -44,6 +47,6 @@ class Answer extends Model
      */
     public function question()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(get_class(app()->make(Question::class)));
     }
 }

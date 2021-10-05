@@ -4,10 +4,13 @@ namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
+use MattDaneshvar\Survey\Contracts\Answer;
+use MattDaneshvar\Survey\Contracts\Entry as EntryContract;
+use MattDaneshvar\Survey\Contracts\Survey;
 use MattDaneshvar\Survey\Exceptions\GuestEntriesNotAllowedException;
 use MattDaneshvar\Survey\Exceptions\MaxEntriesPerUserLimitExceeded;
 
-class Entry extends Model
+class Entry extends Model implements EntryContract
 {
     /**
      * The attributes that are mass assignable.
@@ -53,7 +56,7 @@ class Entry extends Model
      */
     public function answers()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(get_class(app()->make(Answer::class)));
     }
 
     /**
@@ -63,7 +66,7 @@ class Entry extends Model
      */
     public function survey()
     {
-        return $this->belongsTo(Survey::class);
+        return $this->belongsTo(get_class(app()->make(Survey::class)));
     }
 
     /**
@@ -115,7 +118,9 @@ class Entry extends Model
                 continue;
             }
 
-            $this->answers->add(Answer::make([
+            $answer_class = get_class(app()->make(Answer::class));
+
+            $this->answers->add($answer_class::make([
                 'question_id' => substr($key, 1),
                 'entry_id' => $this->id,
                 'value' => $value,

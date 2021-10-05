@@ -3,8 +3,10 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use MattDaneshvar\Survey\Contracts\Question;
+use MattDaneshvar\Survey\Contracts\Section as SectionContract;
 
-class Section extends Model
+class Section extends Model implements SectionContract
 {
     /**
      * Section constructor.
@@ -34,6 +36,6 @@ class Section extends Model
      */
     public function questions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(get_class(app()->make(Question::class)));
     }
 }
