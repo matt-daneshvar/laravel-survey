@@ -13,12 +13,12 @@ Require the package using composer.
 composer require matt-daneshvar/laravel-survey
 ```
 
-Publish package migrations.
+Publish the package migrations.
 ```bash
 php artisan vendor:publish --provider="MattDaneshvar\Survey\SurveyServiceProvider" --tag="migrations" 
 ```
 
-Run the migrations to create all survey tables.
+Run the migrations to create all the required tables.
 ```bash
 php artisan migrate 
 ```
@@ -144,11 +144,11 @@ class SurveyEntriesController extends Controller
 ```
 
 ### Views
-Out of the box this package comes with boilerplate Bootstrap 4.0 views 
+This package comes with boilerplate Bootstrap 4.0 views 
 to display the surveys and some basic question types. 
-These views are meant to be used only as samples, and 
-are not expected to replace your views in production.
-To display survey in a card, include the `card` partial in your views.
+These views are meant to serve as examples, and 
+may not be sufficient for your final use case.
+To display a survey in a card, include the `survey` partial in your views:
 
 ```blade
 @include('survey::standard', ['survey' => $survey])
@@ -159,16 +159,8 @@ To customize the boilerplate views shipped with this package run `package:publis
 ```bash
 php artisan vendor:publish --provider="MattDaneshvar\Survey\SurveyServiceProvider" --tag="views"
 ```
-This will create a new `vendor/matt-daneshvar/survey` directory 
+This will create a new `vendor/survey` directory 
 where you can fully customize the survey views to your liking.
-
-### Road Map
-- [ ] Allow configuration.
-- [ ] Generalize participant relation in `Entry`.
-- [ ] Add weight to options.
-- [ ] Implement wizard + section pagination!
-- [ ] Support anonymized entries.
-- [ ] Add management dashboard.
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
