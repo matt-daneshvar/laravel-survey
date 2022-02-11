@@ -49,12 +49,7 @@ $survey->questions()->create([
 ]);
 ```
 
-#### What type of question supported
-- `radio` - Radio option with option to single select option
-- `number` - Option to enter number value as answer
-- `text` - Option to enter text value as answer
-- `radio-and-text` - Option to enter text value as Other and options value will show up as radio options
-- `mutliselect` - Option to select multiple values
+See [the list of available question types](#question-types). 
 
 #### Creating Multiple Sections
 You may also park your questions under multiple sections.
@@ -161,6 +156,14 @@ To display a survey in a card, include the `survey` partial in your views:
 @include('survey::standard', ['survey' => $survey])
 ``` 
 
+#### Question Types
+These are the question types included out of the box: 
+
+- `text` - Accepting text answers
+- `number` - Accepting numeric answers
+- `radio` - Options presented as radio buttons, accepting 1 option for the answer
+- `mutliselect` - Options presented as checkboxes, accepting multiple options for the answer
+
 #### Customizing the Views
 To customize the boilerplate views shipped with this package run `package:publish` with the `views` tag.
 ```bash
@@ -168,6 +171,16 @@ php artisan vendor:publish --provider="MattDaneshvar\Survey\SurveyServiceProvide
 ```
 This will create a new `vendor/survey` directory 
 where you can fully customize the survey views to your liking.
+
+#### Creating New Question Types
+Once you publish the views that come with this package, you can add your own custom question types
+by implementing new templates for them. 
+
+To implement a new `custom-select` type, for example, you should implement a new template under: 
+
+```
+<your-views-director>/vendor/survey/questions/types/custom-select.blade.php
+```
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
