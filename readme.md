@@ -49,6 +49,13 @@ $survey->questions()->create([
 ]);
 ```
 
+#### What type of question supported
+- `radio` - Radio option with option to single select option
+- `number` - Option to enter number value as answer
+- `text` - Option to enter text value as answer
+- `radio-and-text` - Option to enter text value as Other and options value will show up as radio options
+- `mutliselect` - Option to select multiple values
+
 #### Creating Multiple Sections
 You may also park your questions under multiple sections.
 ```php
