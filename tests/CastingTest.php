@@ -11,7 +11,7 @@ class CastingTest extends TestCase
     public function strings_are_stored_as_they_are()
     {
         $survey = create(Survey::class, [
-            'settings' => ['accept-guest-entries' => true]
+            'settings' => ['accept-guest-entries' => true],
         ]);
 
         $q1 = $survey->questions()->create([
@@ -32,7 +32,7 @@ class CastingTest extends TestCase
     public function array_values_are_stored_as_readable_comma_separated_values()
     {
         $survey = create(Survey::class, [
-            'settings' => ['accept-guest-entries' => true]
+            'settings' => ['accept-guest-entries' => true],
         ]);
 
         $q1 = $survey->questions()->create([
