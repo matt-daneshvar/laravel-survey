@@ -66,4 +66,14 @@ class QuestionTest extends TestCase
 
         $this->assertEquals($survey->id, $question->survey->id);
     }
+
+    /** @test */
+    public function it_has_translations()
+    {
+        $survey = create(Survey::class);
+        $survey->setTranslation('name', 'en', 'testValue_en');
+        $survey->save();
+
+        $this->assertEquals($survey->getTranslation('name', 'fr'), 'testValue_en');
+    }
 }
