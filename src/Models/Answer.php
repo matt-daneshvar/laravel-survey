@@ -6,16 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use MattDaneshvar\Survey\Contracts\Answer as AnswerContract;
 use MattDaneshvar\Survey\Contracts\Entry;
 use MattDaneshvar\Survey\Contracts\Question;
-use Spatie\Translatable\HasTranslations;
 
 class Answer extends Model implements AnswerContract
 {
-    use HasTranslations;
-
-    public $translatable = [
-        'value',
-    ];
-
     /**
      * Answer constructor.
      *
