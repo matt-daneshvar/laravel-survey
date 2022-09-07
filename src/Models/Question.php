@@ -7,9 +7,12 @@ use MattDaneshvar\Survey\Contracts\Answer;
 use MattDaneshvar\Survey\Contracts\Question as QuestionContract;
 use MattDaneshvar\Survey\Contracts\Section;
 use MattDaneshvar\Survey\Contracts\Survey;
+use Spatie\Translatable\HasTranslations;
 
 class Question extends Model implements QuestionContract
 {
+    use HasTranslations;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +23,10 @@ class Question extends Model implements QuestionContract
     protected $casts = [
         'rules' => 'array',
         'options' => 'array',
+    ];
+
+    public $translatable = [
+        'content',
     ];
 
     /**

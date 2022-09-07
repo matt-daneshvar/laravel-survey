@@ -7,9 +7,16 @@ use MattDaneshvar\Survey\Contracts\Entry;
 use MattDaneshvar\Survey\Contracts\Question;
 use MattDaneshvar\Survey\Contracts\Section;
 use MattDaneshvar\Survey\Contracts\Survey as SurveyContract;
+use Spatie\Translatable\HasTranslations;
 
 class Survey extends Model implements SurveyContract
 {
+    use HasTranslations;
+
+    public $translatable = [
+        'name',
+    ];
+
     /**
      * Survey constructor.
      *

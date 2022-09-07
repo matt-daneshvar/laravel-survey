@@ -5,9 +5,16 @@ namespace MattDaneshvar\Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 use MattDaneshvar\Survey\Contracts\Question;
 use MattDaneshvar\Survey\Contracts\Section as SectionContract;
+use Spatie\Translatable\HasTranslations;
 
 class Section extends Model implements SectionContract
 {
+    use HasTranslations;
+
+    public $translatable = [
+        'name',
+    ];
+
     /**
      * Section constructor.
      *
