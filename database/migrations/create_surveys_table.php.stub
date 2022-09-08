@@ -18,6 +18,8 @@ class CreateSurveysTable extends Migration
             $table->json('name');
             $table->json('settings')->nullable();
             $table->timestamps();
+
+            $table->index('name');
         });
     }
 

@@ -19,6 +19,10 @@ class CreateAnswersTable extends Migration
             $table->unsignedInteger('entry_id')->nullable();
             $table->string('value');
             $table->timestamps();
+
+            $table->index('question_id');
+            $table->index('entry_id');
+            $table->index('value');
         });
     }
 
