@@ -14,9 +14,9 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create(config('survey.database.tables.questions'), function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('survey_id')->nullable();
-            $table->unsignedInteger('section_id')->nullable();
+            $table->id();
+            $table->foreignId('survey_id')->nullable()->constrained();
+            $table->foreignId('section_id')->nullable()->constrained();
             $table->json('content');
             $table->string('type')->default('text');
             $table->json('options')->nullable();

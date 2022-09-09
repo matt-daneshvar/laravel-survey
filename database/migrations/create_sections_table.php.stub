@@ -14,8 +14,8 @@ class CreateSectionsTable extends Migration
     public function up()
     {
         Schema::create(config('survey.database.tables.sections'), function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('survey_id')->nullable();
+            $table->id();
+            $table->foreignId('survey_id')->nullable()->constrained();
             $table->json('name');
             $table->timestamps();
         });
