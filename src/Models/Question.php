@@ -22,11 +22,11 @@ class Question extends Model implements QuestionContract
 
     protected $casts = [
         'rules' => 'array',
-        'options' => 'array',
     ];
 
     public $translatable = [
         'content',
+        'options',
     ];
 
     /**
