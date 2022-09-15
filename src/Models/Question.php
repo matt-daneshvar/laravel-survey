@@ -27,6 +27,7 @@ class Question extends Model implements QuestionContract
 
     public $translatable = [
         'content',
+        'options',
     ];
 
     /**
