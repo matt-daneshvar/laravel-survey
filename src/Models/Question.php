@@ -3,6 +3,8 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use MattDaneshvar\Survey\Contracts\Answer;
 use MattDaneshvar\Survey\Contracts\Question as QuestionContract;
 use MattDaneshvar\Survey\Contracts\Section;
@@ -67,7 +69,7 @@ class Question extends Model implements QuestionContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function survey()
+    public function survey(): BelongsTo
     {
         return $this->belongsTo(get_class(app()->make(Survey::class)));
     }
@@ -77,7 +79,7 @@ class Question extends Model implements QuestionContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function section()
+    public function section(): BelongsTo
     {
         return $this->belongsTo(get_class(app()->make(Section::class)));
     }
@@ -87,7 +89,7 @@ class Question extends Model implements QuestionContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function answers()
+    public function answers(): HasMany
     {
         return $this->hasMany(get_class(app()->make(Answer::class)));
     }

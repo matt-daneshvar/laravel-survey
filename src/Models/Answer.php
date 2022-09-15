@@ -3,6 +3,7 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use MattDaneshvar\Survey\Contracts\Answer as AnswerContract;
 use MattDaneshvar\Survey\Contracts\Entry;
 use MattDaneshvar\Survey\Contracts\Question;
@@ -35,7 +36,7 @@ class Answer extends Model implements AnswerContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function entry()
+    public function entry(): BelongsTo
     {
         return $this->belongsTo(get_class(app()->make(Entry::class)));
     }
@@ -45,7 +46,7 @@ class Answer extends Model implements AnswerContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function question()
+    public function question(): BelongsTo
     {
         return $this->belongsTo(get_class(app()->make(Question::class)));
     }

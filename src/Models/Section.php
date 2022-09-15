@@ -3,6 +3,8 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use MattDaneshvar\Survey\Contracts\Question;
 use MattDaneshvar\Survey\Contracts\Section as SectionContract;
 use Spatie\Translatable\HasTranslations;
@@ -41,7 +43,7 @@ class Section extends Model implements SectionContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questions()
+    public function questions(): HasMany
     {
         return $this->hasMany(get_class(app()->make(Question::class)));
     }
@@ -51,7 +53,7 @@ class Section extends Model implements SectionContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function survey()
+    public function survey(): BelongsTo
     {
         return $this->belongsTo(Survey::class);
     }

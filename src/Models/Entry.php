@@ -3,6 +3,8 @@
 namespace MattDaneshvar\Survey\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User;
 use MattDaneshvar\Survey\Contracts\Answer;
 use MattDaneshvar\Survey\Contracts\Entry as EntryContract;
@@ -54,7 +56,7 @@ class Entry extends Model implements EntryContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function answers()
+    public function answers(): HasMany
     {
         return $this->hasMany(get_class(app()->make(Answer::class)));
     }
@@ -64,7 +66,7 @@ class Entry extends Model implements EntryContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function survey()
+    public function survey(): BelongsTo
     {
         return $this->belongsTo(get_class(app()->make(Survey::class)));
     }
@@ -74,7 +76,7 @@ class Entry extends Model implements EntryContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function participant()
+    public function participant(): BelongsTo
     {
         return $this->belongsTo(User::class, 'participant_id');
     }
