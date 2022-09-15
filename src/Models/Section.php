@@ -45,4 +45,14 @@ class Section extends Model implements SectionContract
     {
         return $this->hasMany(get_class(app()->make(Question::class)));
     }
+
+    /**
+     * The survey the section belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class);
+    }
 }
