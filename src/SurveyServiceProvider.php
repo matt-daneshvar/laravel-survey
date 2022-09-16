@@ -31,11 +31,11 @@ class SurveyServiceProvider extends ServiceProvider
         $viewFactory->composer('survey::standard', SurveyComposer::class);
 
         $this->publishMigrations([
-            'create_surveys_table',
-            'create_questions_table',
-            'create_entries_table',
-            'create_answers_table',
-            'create_sections_table',
+            '100000_create_surveys_table',
+            '200000_create_sections_table',
+            '300000_create_questions_table',
+            '400000_create_entries_table',
+            '500000_create_answers_table',
         ]);
     }
 
