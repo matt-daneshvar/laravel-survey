@@ -16,7 +16,7 @@ class CreateEntriesTable extends Migration
         Schema::create(config('survey.database.tables.entries'), function (Blueprint $table) {
             $table->id();
             $table->foreignId('survey_id')->constrained();
-            $table->foreignId('participant_id')->nullable()->constrained();
+            $table->foreignId('participant_id')->nullable()->constrained('users');
             $table->timestamps();
         });
     }
