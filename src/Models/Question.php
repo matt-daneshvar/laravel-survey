@@ -9,11 +9,14 @@ use MattDaneshvar\Survey\Contracts\Answer;
 use MattDaneshvar\Survey\Contracts\Question as QuestionContract;
 use MattDaneshvar\Survey\Contracts\Section;
 use MattDaneshvar\Survey\Contracts\Survey;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Translatable\HasTranslations;
 
-class Question extends Model implements QuestionContract
+class Question extends Model implements QuestionContract, Sortable
 {
     use HasTranslations;
+    use SortableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -62,6 +65,11 @@ class Question extends Model implements QuestionContract
         }
 
         parent::__construct($attributes);
+    }
+
+    public function buildSortQuery()
+    {
+        return static::query()->where('survey_id', $this->survey_id);
     }
 
     /**
