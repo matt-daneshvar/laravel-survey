@@ -120,10 +120,6 @@ class Entry extends Model implements EntryContract
 
             $answer_class = get_class(app()->make(Answer::class));
 
-            if (gettype($value) === 'array') {
-                $value = implode(', ', $value);
-            }
-
             $this->answers->add($answer_class::make([
                 'question_id' => substr($key, 1),
                 'entry_id' => $this->id,

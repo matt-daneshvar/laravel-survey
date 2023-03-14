@@ -51,6 +51,7 @@ class SurveyServiceProvider extends ServiceProvider
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Question::class, \MattDaneshvar\Survey\Models\Question::class);
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Section::class, \MattDaneshvar\Survey\Models\Section::class);
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Survey::class, \MattDaneshvar\Survey\Models\Survey::class);
+        $this->app->bind(\MattDaneshvar\Survey\Contracts\Value::class, \MattDaneshvar\Survey\Casts\SeparatedByCommaAndSpace::class);
     }
 
     /**

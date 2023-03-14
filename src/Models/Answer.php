@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use MattDaneshvar\Survey\Contracts\Answer as AnswerContract;
 use MattDaneshvar\Survey\Contracts\Entry;
 use MattDaneshvar\Survey\Contracts\Question;
+use MattDaneshvar\Survey\Contracts\Value;
 
 class Answer extends Model implements AnswerContract
 {
@@ -19,6 +20,8 @@ class Answer extends Model implements AnswerContract
         if (! isset($this->table)) {
             $this->setTable(config('survey.database.tables.answers'));
         }
+
+        $this->casts['value'] = get_class(app(Value::class));
 
         parent::__construct($attributes);
     }
