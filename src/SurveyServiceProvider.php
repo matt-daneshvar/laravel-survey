@@ -70,7 +70,7 @@ class SurveyServiceProvider extends ServiceProvider
 
             $this->publishes([
                 __DIR__."/../database/migrations/$migration.php.stub" => database_path('migrations/'.date('Y_m_d_His',
-                        time())."_$migration.php"),
+                    time())."_$migration.php"),
             ], 'migrations');
         }
     }
