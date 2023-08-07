@@ -34,6 +34,11 @@ class Question extends Model implements QuestionContract, Sortable
         'options',
     ];
 
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
+
     /**
      * Boot the question.
      *
