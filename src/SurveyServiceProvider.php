@@ -51,6 +51,7 @@ class SurveyServiceProvider extends ServiceProvider
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Question::class, \MattDaneshvar\Survey\Models\Question::class);
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Section::class, \MattDaneshvar\Survey\Models\Section::class);
         $this->app->bind(\MattDaneshvar\Survey\Contracts\Survey::class, \MattDaneshvar\Survey\Models\Survey::class);
+        $this->app->bind(\MattDaneshvar\Survey\Contracts\Value::class, \MattDaneshvar\Survey\Casts\SeparatedByCommaAndSpace::class);
     }
 
     /**
@@ -68,8 +69,8 @@ class SurveyServiceProvider extends ServiceProvider
             }
 
             $this->publishes([
-                __DIR__."/../database/migrations/$migration.php.stub" => database_path('migrations/'.date('Y_m_d',
-                        time())."_$migration.php"),
+                __DIR__."/../database/migrations/$migration.php.stub" => database_path('migrations/'.date('Y_m_d_His',
+                    time())."_$migration.php"),
             ], 'migrations');
         }
     }
