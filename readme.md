@@ -162,7 +162,7 @@ These are the question types included out of the box:
 - `text` - Accepting text answers
 - `number` - Accepting numeric answers
 - `radio` - Options presented as radio buttons, accepting 1 option for the answer
-- `mutliselect` - Options presented as checkboxes, accepting multiple options for the answer
+- `multiselect` - Options presented as checkboxes, accepting multiple options for the answer
 
 #### Customizing the Views
 To customize the boilerplate views shipped with this package run `package:publish` with the `views` tag.
