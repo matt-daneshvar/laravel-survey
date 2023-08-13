@@ -26,7 +26,7 @@ class Summary
     /**
      * Find all answers with the same value.
      *
-     * @param $value
+     * @param  $value
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function similarAnswers($value)
@@ -37,7 +37,7 @@ class Summary
     /**
      * Find the ratio of similar answers to all other answers.
      *
-     * @param $value
+     * @param  $value
      * @return float|int
      */
     public function similarAnswersRatio($value)

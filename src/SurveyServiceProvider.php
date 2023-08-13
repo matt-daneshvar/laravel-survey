@@ -57,7 +57,7 @@ class SurveyServiceProvider extends ServiceProvider
     /**
      * Publish package migrations.
      *
-     * @param $migrations
+     * @param  $migrations
      */
     protected function publishMigrations($migrations)
     {
