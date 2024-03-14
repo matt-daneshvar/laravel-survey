@@ -88,7 +88,7 @@ class Question extends Model implements QuestionContract
     /**
      * The question's validation rules.
      *
-     * @param $value
+     * @param  $value
      * @return array|mixed
      */
     public function getRulesAttribute($value)
@@ -112,7 +112,7 @@ class Question extends Model implements QuestionContract
      * Scope a query to only include questions that
      * don't belong to any sections.
      *
-     * @param $query
+     * @param  $query
      * @return mixed
      */
     public function scopeWithoutSection($query)
