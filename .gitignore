@@ -6,6 +6,7 @@
 
 # Phpunit
 .phpunit.result.cache
+.phpunit.cache
 build/
 
 # Composer

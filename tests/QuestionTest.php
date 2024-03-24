@@ -4,10 +4,11 @@ namespace MattDaneshvar\Survey\Tests;
 
 use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
+use PHPUnit\Framework\Attributes\Test;
 
 class QuestionTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_has_content()
     {
         $question = create(Question::class, ['content' => 'How many cats do you have?']);
@@ -15,7 +16,7 @@ class QuestionTest extends TestCase
         $this->assertEquals('How many cats do you have?', $question->content);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_a_type()
     {
         $question = create(Question::class, ['type' => 'radio']);
@@ -23,7 +24,7 @@ class QuestionTest extends TestCase
         $this->assertEquals('radio', $question->type);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_a_key()
     {
         $question = create(Question::class);
@@ -31,7 +32,7 @@ class QuestionTest extends TestCase
         $this->assertNotNull($question->key);
     }
 
-    /** @test */
+    #[Test]
     public function it_may_have_rules()
     {
         $question = new Question([
@@ -42,7 +43,7 @@ class QuestionTest extends TestCase
         $this->assertCount(2, $question->rules);
     }
 
-    /** @test */
+    #[Test]
     public function it_may_have_options()
     {
         $question = new Question([
@@ -53,7 +54,7 @@ class QuestionTest extends TestCase
         $this->assertCount(3, $question->options);
     }
 
-    /** @test */
+    #[Test]
     public function it_automatically_persist_the_same_survey_id_as_the_parent_section()
     {
         $survey = create(Survey::class);

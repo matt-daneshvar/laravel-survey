@@ -4,10 +4,11 @@ namespace MattDaneshvar\Survey\Tests;
 
 use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
+use PHPUnit\Framework\Attributes\Test;
 
 class SurveyTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_has_a_name()
     {
         $survey = create(Survey::class, ['name' => 'Cat Survey']);
@@ -15,7 +16,7 @@ class SurveyTest extends TestCase
         $this->assertEquals('Cat Survey', $survey->name);
     }
 
-    /** @test */
+    #[Test]
     public function it_may_have_settings()
     {
         $survey = new Survey([
@@ -26,7 +27,7 @@ class SurveyTest extends TestCase
         $this->assertCount(1, $survey->settings);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_add_questions()
     {
         $survey = create(Survey::class);
@@ -36,7 +37,7 @@ class SurveyTest extends TestCase
         $this->assertEquals(1, $survey->questions->count());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_add_multiple_questions_at_once()
     {
         $survey = create(Survey::class);
@@ -48,7 +49,7 @@ class SurveyTest extends TestCase
         $this->assertEquals(2, $survey->questions->count());
     }
 
-    /** @test */
+    #[Test]
     public function it_combines_the_rules_of_its_questions()
     {
         $q1 = create(Question::class, ['rules' => ['numeric', 'min:0']]);
@@ -61,7 +62,7 @@ class SurveyTest extends TestCase
         $this->assertArrayHasKey($q1->key, $survey->rules);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_a_limit_per_participant()
     {
         $survey = new Survey([]);
@@ -75,7 +76,7 @@ class SurveyTest extends TestCase
         $this->assertEquals(5, $anotherSurvey->limitPerParticipant());
     }
 
-    /** @test */
+    #[Test]
     public function it_may_have_no_limits_per_participant()
     {
         $survey = new Survey([
@@ -85,7 +86,7 @@ class SurveyTest extends TestCase
         $this->assertNull($survey->limitPerParticipant());
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_accept_guest_entries_by_default()
     {
         $survey = new Survey([]);
@@ -93,7 +94,7 @@ class SurveyTest extends TestCase
         $this->assertFalse($survey->acceptsGuestEntries());
     }
 
-    /** @test */
+    #[Test]
     public function it_may_accept_guest_entries()
     {
         $survey = new Survey([

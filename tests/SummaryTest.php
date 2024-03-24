@@ -6,10 +6,11 @@ use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
 use MattDaneshvar\Survey\Utilities\Summary;
+use PHPUnit\Framework\Attributes\Test;
 
 class SummaryTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_provides_similar_answers()
     {
         $survey = create(Survey::class, ['settings' => ['accept-guest-entries' => true]]);
@@ -28,7 +29,7 @@ class SummaryTest extends TestCase
         $this->assertEquals(0.5, $summary->similarAnswersRatio('A'));
     }
 
-    /** @test */
+    #[Test]
     public function it_provides_average_answer()
     {
         $survey = create(Survey::class, ['settings' => ['accept-guest-entries' => true]]);

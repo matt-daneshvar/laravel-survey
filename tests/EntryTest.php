@@ -5,10 +5,11 @@ namespace MattDaneshvar\Survey\Tests;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
+use PHPUnit\Framework\Attributes\Test;
 
 class EntryTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_be_made_from_an_array()
     {
         $entry = (new Entry())->fromArray([
@@ -19,7 +20,7 @@ class EntryTest extends TestCase
         $this->assertEquals(2, $entry->answers->count());
     }
 
-    /** @test */
+    #[Test]
     public function it_accepts_a_survey()
     {
         $survey = $this->createSurvey();
@@ -29,7 +30,7 @@ class EntryTest extends TestCase
         $this->assertEquals($survey->id, $entry->survey->id);
     }
 
-    /** @test */
+    #[Test]
     public function it_accepts_a_participant()
     {
         $user = $this->signIn();
@@ -39,7 +40,7 @@ class EntryTest extends TestCase
         $this->assertEquals($user->id, $entry->participant->id);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_chain_method_calls()
     {
         $survey = $this->createSurvey(2);

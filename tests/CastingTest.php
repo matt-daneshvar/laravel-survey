@@ -4,10 +4,11 @@ namespace MattDaneshvar\Survey\Tests;
 
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Survey;
+use PHPUnit\Framework\Attributes\Test;
 
 class CastingTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function strings_are_stored_as_they_are()
     {
         $survey = create(Survey::class, [
@@ -28,7 +29,7 @@ class CastingTest extends TestCase
         $this->assertEquals('Jafar', $entry->answers->first()->value);
     }
 
-    /** @test */
+    #[Test]
     public function array_values_are_stored_as_readable_comma_separated_values()
     {
         $survey = create(Survey::class, [
