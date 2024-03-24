@@ -1,5 +1,5 @@
 # Laravel Survey
-[![Build Status](https://travis-ci.org/matt-daneshvar/laravel-survey.svg?branch=master)](https://travis-ci.org/matt-daneshvar/laravel-survey)
+[![Tests](https://github.com/matt-daneshvar/laravel-survey/actions/workflows/tests.yml/badge.svg)](https://github.com/matt-daneshvar/laravel-survey/actions/workflows/tests.yml)
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-survey)
 
 Create and manage surveys within your Laravel app. 
