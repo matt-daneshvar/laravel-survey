@@ -3,7 +3,8 @@
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-survey)
 
 Create and manage surveys within your Laravel app. 
-![alt text](https://raw.githubusercontent.com/matt-daneshvar/laravel-survey/master/demo.gif)
+
+![Demo](https://github.com/matt-daneshvar/laravel-survey/assets/10030505/1fd79b4b-5058-4049-a369-8439b0431fe2)
 
 [This video](https://youtu.be/BA7tc-2rcWg) walks through installing this package and creating a basic survey.
 
