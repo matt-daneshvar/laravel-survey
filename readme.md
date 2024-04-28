@@ -139,7 +139,7 @@ class SurveyEntriesController extends Controller
 {
     public function store(Survey $survey, Request $request)
     {
-        $answers = $this->validate($request, $survey->rules);
+        $answers = $request->validate($request, $survey->rules);
         
         (new Entry)->for($survey)->fromArray($answers)->push();
     }
