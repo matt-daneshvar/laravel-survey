@@ -84,16 +84,18 @@ $two->questions()->create([
 The `Entry` model comes with a `fromArray` function.  
 This is especially useful when you're creating an entry from a form submission. 
 ```php
-(new Entry)->for($survey)->fromArray([
+(new Entry())->for($survey)->fromArray([
     'q1' => 'Yes',
     'q2' => 5
 ])->push();
 ```
 
+The answer array should be in the format of `q + question_id => answer`, thus becoming `'q1' => 'my answer'`.
+
 #### By a Specific User
 You may fluently specify the participant using the `by()` function.
 ```php
-(new Entry)->for($survey)->by($user)->fromArray($answers)->push();
+(new Entry())->for($survey)->by($user)->fromArray($answers)->push();
 ```
 
 ### Setting Constraints
@@ -137,11 +139,11 @@ Validate user's input against the entire rule set of your `Survey` using Laravel
 ```php
 class SurveyEntriesController extends Controller
 {
-    public function store(Survey $survey, Request $request)
+    public function store(Request $request, Survey $survey)
     {
-        $answers = $request->validate($request, $survey->rules);
+        $answers = $request->validate($survey->rules, $request->all());
         
-        (new Entry)->for($survey)->fromArray($answers)->push();
+        (new Entry())->for($survey)->fromArray($answers)->push();
     }
 }
 ```
