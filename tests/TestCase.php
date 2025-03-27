@@ -62,7 +62,7 @@ class TestCase extends Orchestra
      * @param  User|null  $user
      * @return User
      */
-    protected function signIn(User $user = null)
+    protected function signIn(?User $user = null)
     {
         $user = $user ?? User::forceCreate([
             'name' => 'John',
