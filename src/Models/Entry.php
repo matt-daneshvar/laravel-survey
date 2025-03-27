@@ -98,7 +98,7 @@ class Entry extends Model implements EntryContract
      * @param  Model|null  $model
      * @return $this
      */
-    public function by(Model $model = null)
+    public function by(?Model $model = null)
     {
         $this->participant()->associate($model);
 

@@ -113,7 +113,7 @@ class Survey extends Model implements SurveyContract
      * @param  Model  $participant
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function lastEntry(Model $participant = null)
+    public function lastEntry(?Model $participant = null)
     {
         return $participant === null ? null : $this->entriesFrom($participant)->first();
     }
@@ -124,7 +124,7 @@ class Survey extends Model implements SurveyContract
      * @param  Model|null  $model
      * @return bool
      */
-    public function isEligible(Model $participant = null)
+    public function isEligible(?Model $participant = null)
     {
         if ($participant === null) {
             return $this->acceptsGuestEntries();
